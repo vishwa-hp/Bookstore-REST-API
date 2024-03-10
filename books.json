@@ -1,0 +1,111 @@
+{
+    "api": {
+      "name": "Bookstore API",
+      "version": "2.0",
+      "description": "A simple RESTful API for managing books in a bookstore"
+    },
+    "endpoints": {
+      "/books": {
+        "description": "Endpoint for managing books",
+        "methods": {
+          "GET": {
+            "description": "Retrieve all books",
+            "response": {
+              "status": 200,
+              "contentType": "application/json",
+              "body": {
+                "books": [
+                  {
+                    "id": 1,
+                    "title": "Book 1",
+                    "author": "Author 1",
+                    "publishedYear": 2020
+                  },
+                  {
+                    "id": 2,
+                    "title": "Book 2",
+                    "author": "Author 2",
+                    "publishedYear": 2021
+                  }
+                ]
+              }
+            }
+          },
+          "POST": {
+            "description": "Add a new book",
+            "request": {
+              "contentType": "application/json",
+              "body": {
+                "title": "New Book Title",
+                "author": "New Book Author",
+                "publishedYear": 2022
+              }
+            },
+            "response": {
+              "status": 201,
+              "contentType": "application/json",
+              "body": {
+                "message": "Book added successfully"
+              }
+            }
+          }
+        }
+      },
+      "/books/{id}": {
+        "description": "Endpoint for managing a single book",
+        "methods": {
+          "GET": {
+            "description": "Retrieve a specific book by ID",
+            "parameters": {
+              "id": "integer"
+            },
+            "response": {
+              "status": 200,
+              "contentType": "application/json",
+              "body": {
+                "id": 1,
+                "title": "Book 1",
+                "author": "Author 1",
+                "publishedYear": 2020
+              }
+            }
+          },
+          "PUT": {
+            "description": "Update a specific book by ID",
+            "parameters": {
+              "id": "integer"
+            },
+            "request": {
+              "contentType": "application/json",
+              "body": {
+                "title": "Updated Book Title",
+                "author": "Updated Book Author",
+                "publishedYear": 2023
+              }
+            },
+            "response": {
+              "status": 200,
+              "contentType": "application/json",
+              "body": {
+                "message": "Book updated successfully"
+              }
+            }
+          },
+          "DELETE": {
+            "description": "Delete a specific book by ID",
+            "parameters": {
+              "id": "integer"
+            },
+            "response": {
+              "status": 204,
+              "contentType": "application/json",
+              "body": {
+                "message": "Book deleted successfully"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
